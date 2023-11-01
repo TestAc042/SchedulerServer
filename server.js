@@ -11,7 +11,7 @@ const mongoURI = "mongodb+srv://testac042:qrBNlA5NMpGYDm3h@testleet.y9jtdbz.mong
 const dbName = "student"
 const collectionName = "users_2"
 const logCollectionName = "log"
-const apiUrl = "https://testserver-f62r.onrender.com/sendRequest"
+const apiUrl = "https://queryservertest.onrender.com/sendRequest"
 const apiHeaders = {'Content-Type': 'application/json'};
 
 const mongoClient = new MongoClient(mongoURI, {
@@ -31,8 +31,8 @@ app.get("/updateUserData", async (req, res) => {
     for (const userInstance of usersData) {
       if (userCount == 100) break;
       userCount++;
-      // console.log(userCount);
-      // console.log(userInstance);
+      console.log(userCount);
+      console.log(userInstance);
 
       let graphqlQuery = {
         username: userInstance,
