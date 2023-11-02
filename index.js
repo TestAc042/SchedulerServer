@@ -19,6 +19,18 @@ const mongoClient = new MongoClient(mongoURI, {
   useUnifiedTopology: true,
 });
 
+app.get("/beep", async (req, res) => {
+  try {
+    console.log("Wake up sid");
+  }
+  catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  } finally {
+    mongoClient.close()
+  }
+})
+
 app.get("/updateUserData", async (req, res) => {
   try {
     await mongoClient.connect();
