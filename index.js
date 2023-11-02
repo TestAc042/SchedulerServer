@@ -27,7 +27,6 @@ app.get("/beep", async (req, res) => {
     console.error(error);
     res.status(500).send("Internal Server Error");
   } finally {
-    mongoClient.close()
   }
 })
 
