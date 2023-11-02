@@ -19,14 +19,14 @@ const mongoClient = new MongoClient(mongoURI, {
   useUnifiedTopology: true,
 });
 
-app.get("/beep", async (req, res) => {
+app.get("/", async (req, res) => {
   try {
+    res.status(200).send("Ok I am awake");
     console.log("Wake up sid");
   }
   catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
-  } finally {
   }
 })
 
@@ -54,7 +54,9 @@ app.get("/updateUserData", async (req, res) => {
       };
 
       let response;
+      let beep;
       try {
+        beep = await axios.get("https://schedulertestserver.onrender.com/")
         response = await axios.post(apiUrl, graphqlQuery, {
           headers: apiHeaders,
         });
