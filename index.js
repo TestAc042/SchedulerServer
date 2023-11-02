@@ -54,9 +54,9 @@ app.get("/updateUserData", async (req, res) => {
       };
 
       let response;
-      let beep;
+      // let beep;
       try {
-        beep = await axios.get("https://schedulertestserver.onrender.com/")
+        // beep = await axios.get("https://schedulertestserver.onrender.com/")
         response = await axios.post(apiUrl, graphqlQuery, {
           headers: apiHeaders,
         });
