@@ -29,7 +29,7 @@ app.get("/updateUserData", async (req, res) => {
     let userCount = 0;
 
     for (const userInstance of usersData) {
-      if (userCount == 100) break;
+      // if (userCount == 5001) break;
       userCount++;
       console.log(userCount);
       console.log(userInstance);
