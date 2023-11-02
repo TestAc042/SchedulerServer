@@ -203,7 +203,7 @@ app.get("/updateUserData", async (req, res) => {
     console.error(error);
     res.status(500).send("Internal Server Error");
   } finally {
-    await mongoClient.close();
+    mongoClient.close()
   }
 });
 
