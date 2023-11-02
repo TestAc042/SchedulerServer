@@ -22,7 +22,7 @@ const mongoClient = new MongoClient(mongoURI, {
 app.get("/", async (req, res) => {
   try {
     res.status(200).send("Ok I am awake");
-    console.log("Wake up sid");
+    // console.log("Wake up sid");
   }
   catch (error) {
     console.error(error);
@@ -42,8 +42,8 @@ app.get("/updateUserData", async (req, res) => {
     for (const userInstance of usersData) {
       // if (userCount == 5001) break;
       userCount++;
-      console.log(userCount);
-      console.log(userInstance);
+      // console.log(userCount);
+      // console.log(userInstance);
 
       let graphqlQuery = {
         username: userInstance,
@@ -57,7 +57,7 @@ app.get("/updateUserData", async (req, res) => {
       // let beep;
       try {
         // beep = await axios.get("https://schedulertestserver.onrender.com/")
-        response = await axios.post(apiUrl, graphqlQuery, {
+          response = await axios.post(apiUrl, graphqlQuery, {
           headers: apiHeaders,
         });
       } catch (e) {
@@ -212,6 +212,7 @@ app.get("/updateUserData", async (req, res) => {
     }
 
     res.send("User data updated");
+    console.log("Successfully executed for ", userCount, " users")
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
